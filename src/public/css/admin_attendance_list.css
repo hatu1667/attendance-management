@@ -1,0 +1,184 @@
+/* public/css/admin_attendance_list.css */
+
+.a-page {
+    background: #f3f3f3;
+    min-height: calc(100vh - 70px);
+    /* ヘッダー高さに合わせて調整OK */
+    padding: 52px 16px 80px;
+}
+
+.a-page__inner {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* 見出し：｜ yyyy年m月d日の勤怠 */
+.a-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 22px;
+    letter-spacing: .02em;
+}
+
+.a-title__bar {
+    width: 4px;
+    height: 22px;
+    background: #111;
+    border-radius: 2px;
+}
+
+/* 日付ナビ（前日 / date / 翌日） */
+.a-nav {
+    width: min(640px, 100%);
+    margin: 0 auto 18px;
+    display: grid;
+    grid-template-columns: 120px 1fr 120px;
+    gap: 12px;
+    align-items: center;
+}
+
+.a-nav__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    padding: 0 12px;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    color: #222;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.a-nav__btn:hover {
+    background: #fafafa;
+}
+
+.a-nav__form {
+    display: flex;
+    justify-content: center;
+}
+
+.a-nav__label {
+    width: 100%;
+    max-width: 260px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 0 10px;
+    height: 34px;
+}
+
+.a-nav__icon {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    border: 2px solid #bbb;
+    border-radius: 3px;
+    position: relative;
+}
+
+.a-nav__icon::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    top: 5px;
+    height: 2px;
+    background: #bbb;
+}
+
+.a-nav__date {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 12px;
+    color: #222;
+    background: transparent;
+}
+
+/* テーブルカード */
+.a-card {
+    width: min(640px, 100%);
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* テーブル */
+.a-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 12px;
+    color: #444;
+}
+
+.a-table thead th {
+    background: #f7f7f7;
+    color: #777;
+    font-weight: 700;
+    padding: 10px 8px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.a-table tbody td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.a-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.td-center {
+    text-align: center;
+}
+
+.td-empty {
+    text-align: center;
+    color: #777;
+    padding: 18px 8px;
+}
+
+/* 列幅（2枚目っぽく） */
+.col-name {
+    width: 24%;
+}
+
+.col-time {
+    width: 12%;
+}
+
+.col-break {
+    width: 16%;
+}
+
+.col-total {
+    width: 14%;
+}
+
+.col-detail {
+    width: 10%;
+}
+
+/* 詳細リンク */
+.a-detail {
+    color: #111;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.a-detail:hover {
+    text-decoration: underline;
+}

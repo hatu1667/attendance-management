@@ -1,0 +1,159 @@
+/* ===== Request list (申請一覧) ===== */
+
+/* ページ全体の背景をスクショ1の薄グレーに */
+body {
+    background: #f3f3f3;
+}
+
+/* 中央寄せレイアウト */
+.container {
+    width: min(920px, 92vw);
+    margin: 0 auto;
+    padding: 56px 0 80px;
+}
+
+/* 見出し（左に縦バー） */
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 18px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+}
+
+.section-title .bar {
+    width: 4px;
+    height: 22px;
+    background: #111;
+    border-radius: 2px;
+}
+
+/* タブ（下線のみ） */
+.status-tabs {
+    display: flex;
+    gap: 42px;
+    justify-content: center;
+    margin: 10px 0 26px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* タブ下の長い線 */
+.status-tabs::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: min(520px, 90%);
+    height: 1px;
+    background: #777;
+    opacity: 0.7;
+}
+
+.status-tabs .tab {
+    text-decoration: none;
+    color: #111;
+    font-size: 12px;
+    padding: 8px 4px 12px;
+    position: relative;
+}
+
+/* アクティブの短い下線 */
+.status-tabs .tab.is-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: #111;
+}
+
+/* テーブル外枠（白カード） */
+.table-wrap {
+    width: min(740px, 92vw);
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .08);
+    overflow: hidden;
+    /* 角丸をテーブルにも効かせる */
+}
+
+/* テーブル */
+.req-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    color: #111;
+}
+
+.req-table thead th {
+    background: #f6f6f6;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #e5e5e5;
+    white-space: nowrap;
+}
+
+.req-table tbody td {
+    padding: 10px 10px;
+    text-align: center;
+    border-bottom: 1px solid #ececec;
+    vertical-align: middle;
+}
+
+.req-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 詳細リンク */
+.th-detail,
+.td-detail {
+    width: 70px;
+}
+
+.detail-link {
+    color: #111;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
+
+/* 空行 */
+.empty {
+    text-align: center;
+    padding: 18px 10px;
+    color: #666;
+}
+
+/* ページネーション（中央） */
+.pagination {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Laravel pagination が ul/li の場合の最低限の整形（環境差対策） */
+.pagination nav,
+.pagination ul {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination a,
+.pagination span {
+    font-size: 12px;
+}

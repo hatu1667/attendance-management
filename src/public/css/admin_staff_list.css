@@ -1,0 +1,115 @@
+/* 背景（スクショの薄いグレー） */
+.staff-page {
+    background: #f3f4f6;
+    min-height: calc(100vh - 72px);
+    /* ヘッダー分は環境で変わるので大体 */
+    padding: 34px 0 60px;
+}
+
+.staff-page__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 18px;
+}
+
+/* タイトル（左の縦バー付き） */
+.page-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 18px;
+}
+
+.page-title__bar {
+    width: 3px;
+    height: 18px;
+    background: #111827;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+/* 中央の白カード（小さめ） */
+.staff-card {
+    width: 560px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* テーブル */
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.staff-table thead th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.staff-table tbody td {
+    font-size: 12px;
+    color: #111827;
+    padding: 12px 18px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: middle;
+}
+
+.staff-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 列幅（スクショっぽく） */
+.col-name,
+.td-name {
+    width: 30%;
+}
+
+.col-email,
+.td-email {
+    width: 52%;
+}
+
+.col-action,
+.td-action {
+    width: 18%;
+    text-align: center;
+}
+
+/* 詳細リンク（黒で控えめ） */
+.detail-link {
+    color: #111827;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
+
+/* 空行 */
+.empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 18px 0;
+}
+
+/* ページネーション（出すなら中央寄せ） */
+.pagination-wrap {
+    width: 560px;
+    max-width: 100%;
+    margin: 14px auto 0;
+    display: flex;
+    justify-content: center;
+}
