@@ -3,7 +3,7 @@
 ## 環境構築
 ### Dockerのビルド
 1. $ cd coachtech/laravel
-2. $ git@github.com:hatu1667/flea-market.git
+2. $ git@github.com:hatu1667/attendance-management.git
 3. $ docker-compose up -d --build
 4. $code .
 
