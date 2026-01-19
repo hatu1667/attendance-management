@@ -1,9 +1,6 @@
-/* public/css/admin_attendance_list.css */
-
 .a-page {
     background: #f3f3f3;
     min-height: calc(100vh - 70px);
-    /* ヘッダー高さに合わせて調整OK */
     padding: 52px 16px 80px;
 }
 
@@ -12,7 +9,6 @@
     margin: 0 auto;
 }
 
-/* 見出し：｜ yyyy年m月d日の勤怠 */
 .a-title {
     display: flex;
     align-items: center;
@@ -31,7 +27,6 @@
     border-radius: 2px;
 }
 
-/* 日付ナビ（前日 / date / 翌日） */
 .a-nav {
     width: min(640px, 100%);
     margin: 0 auto 18px;
@@ -106,7 +101,6 @@
     background: transparent;
 }
 
-/* テーブルカード */
 .a-card {
     width: min(640px, 100%);
     margin: 0 auto;
@@ -115,7 +109,6 @@
     overflow: hidden;
 }
 
-/* テーブル */
 .a-table {
     width: 100%;
     border-collapse: collapse;
@@ -151,7 +144,7 @@
     padding: 18px 8px;
 }
 
-/* 列幅（2枚目っぽく） */
+
 .col-name {
     width: 24%;
 }

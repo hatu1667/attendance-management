@@ -37,7 +37,6 @@ class AttendanceRequest extends Model
         'applied_at'    => 'datetime',
     ];
 
-    // 関連
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

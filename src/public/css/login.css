@@ -24,8 +24,6 @@ body {
     line-height: 1.6;
 }
 
-
-/* Header */
 .site-header {
     background: var(--brand);
     color: #fff;
@@ -54,8 +52,6 @@ body {
     letter-spacing: .5px;
 }
 
-
-/* Layout */
 .container {
     max-width: 420px;
     margin: 48px auto 80px;
@@ -73,8 +69,6 @@ body {
     background: #fff;
 }
 
-
-/* Form */
 .login-form {
     display: grid;
     gap: 16px;
@@ -144,8 +138,6 @@ body {
     text-decoration: underline;
 }
 
-
-/* util */
 .sr-only {
     position: absolute;
     width: 1px;

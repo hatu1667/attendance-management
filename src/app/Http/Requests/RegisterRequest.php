@@ -17,7 +17,6 @@ class RegisterRequest extends FormRequest
             'name' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8', 'confirmed'],
-            // confirmed は password_confirmation を自動で見る
         ];
     }
 

@@ -41,7 +41,6 @@
                     <td>{{ optional($r->user)->name ?? '—' }}</td>
                     <td>{{ optional($r->target_date)->format('Y/m/d') ?? '—' }}</td>
 
-                    {{-- reason は廃止：after_note を表示 --}}
                     <td>{{ $r->after_note ?: '—' }}</td>
 
                     <td>{{ optional($r->applied_at)->format('Y/m/d H:i') ?? '—' }}</td>

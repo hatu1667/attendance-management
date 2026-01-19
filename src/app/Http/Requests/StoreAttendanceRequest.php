@@ -14,7 +14,7 @@ class StoreAttendanceRequest extends FormRequest
 
     protected function prepareForValidation(): void
     {
-        // 余計な空白除去
+
         $this->merge([
             'after_clock_in_at'  => is_string($this->input('after_clock_in_at'))  ? trim($this->input('after_clock_in_at'))  : $this->input('after_clock_in_at'),
             'after_clock_out_at' => is_string($this->input('after_clock_out_at')) ? trim($this->input('after_clock_out_at')) : $this->input('after_clock_out_at'),
@@ -26,17 +26,11 @@ class StoreAttendanceRequest extends FormRequest
     {
         return [
             'attendance_id'      => ['required', 'integer'],
-
-            // 時刻として入力されている前提
             'after_clock_in_at'  => ['nullable', 'regex:/^([01]\d|2[0-3]):[0-5]\d$/'],
             'after_clock_out_at' => ['nullable', 'regex:/^([01]\d|2[0-3]):[0-5]\d$/'],
-
-            // 休憩は配列。空行はOK（後で判定）
             'after_breaks'               => ['nullable', 'array'],
             'after_breaks.*.start'       => ['nullable', 'regex:/^([01]\d|2[0-3]):[0-5]\d$/'],
             'after_breaks.*.end'         => ['nullable', 'regex:/^([01]\d|2[0-3]):[0-5]\d$/'],
-
-            // ✅ 備考は必須（あなたの要件4）
             'after_note'         => ['required', 'string'],
         ];
     }
@@ -56,7 +50,6 @@ class StoreAttendanceRequest extends FormRequest
     {
         $validator->after(function (Validator $v) {
 
-            // ---- 時刻を「分」に変換する関数（比較用）----
             $toMin = function ($hhmm) {
                 if (!is_string($hhmm) || !preg_match('/^([01]\d|2[0-3]):[0-5]\d$/', $hhmm)) {
                     return null;
@@ -68,18 +61,12 @@ class StoreAttendanceRequest extends FormRequest
             $in  = $toMin($this->input('after_clock_in_at'));
             $out = $toMin($this->input('after_clock_out_at'));
 
-            // =========================================================
-            // 1) 出勤と退勤の前後関係
-            // 出勤 > 退勤 OR 退勤 < 出勤 ならエラー
-            // =========================================================
             if (!is_null($in) && !is_null($out) && $in > $out) {
-                // ✅ Bladeで @error('after_clock_in_at') / @error('after_clock_out_at') で拾えるように同じキーに付与
                 $msg = '出勤時間もしくは退勤時間が不適切な値です';
                 $v->errors()->add('after_clock_in_at', $msg);
                 $v->errors()->add('after_clock_out_at', $msg);
             }
 
-            // 休憩配列を取得（空行も来る）
             $breaks = (array)($this->input('after_breaks') ?? []);
 
             foreach ($breaks as $i => $b) {
@@ -87,14 +74,10 @@ class StoreAttendanceRequest extends FormRequest
                 $bs = $toMin($b['start'] ?? null);
                 $be = $toMin($b['end'] ?? null);
 
-                // startもendも空ならスキップ（追加行など）
                 if (is_null($bs) && is_null($be)) {
                     continue;
                 }
 
-                // =========================================================
-                // 2) 休憩開始が「出勤より前」または「退勤より後」
-                // =========================================================
                 if (!is_null($bs)) {
                     if (!is_null($in) && $bs < $in) {
                         $v->errors()->add("after_breaks.$i.start", '休憩時間が不適切な値です');
@@ -104,14 +87,10 @@ class StoreAttendanceRequest extends FormRequest
                     }
                 }
 
-                // =========================================================
-                // 3) 休憩終了が「退勤より後」
-                // =========================================================
                 if (!is_null($be) && !is_null($out) && $be > $out) {
                     $v->errors()->add("after_breaks.$i.end", '休憩時間もしくは退勤時間が不適切な値です');
                 }
 
-                // おまけ：休憩 start > end の場合（仕様に無いけど普通は必要）
                 if (!is_null($bs) && !is_null($be) && $bs > $be) {
                     $v->errors()->add("after_breaks.$i.start", '休憩時間が不適切な値です');
                     $v->errors()->add("after_breaks.$i.end", '休憩時間が不適切な値です');

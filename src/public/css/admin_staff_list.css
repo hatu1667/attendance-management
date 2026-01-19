@@ -1,8 +1,6 @@
-/* 背景（スクショの薄いグレー） */
 .staff-page {
     background: #f3f4f6;
     min-height: calc(100vh - 72px);
-    /* ヘッダー分は環境で変わるので大体 */
     padding: 34px 0 60px;
 }
 
@@ -12,7 +10,6 @@
     padding: 0 18px;
 }
 
-/* タイトル（左の縦バー付き） */
 .page-title {
     display: flex;
     align-items: center;
@@ -31,7 +28,6 @@
     display: inline-block;
 }
 
-/* 中央の白カード（小さめ） */
 .staff-card {
     width: 560px;
     max-width: 100%;
@@ -42,7 +38,6 @@
     overflow: hidden;
 }
 
-/* テーブル */
 .staff-table {
     width: 100%;
     border-collapse: collapse;
@@ -70,7 +65,6 @@
     border-bottom: none;
 }
 
-/* 列幅（スクショっぽく） */
 .col-name,
 .td-name {
     width: 30%;
@@ -87,7 +81,6 @@
     text-align: center;
 }
 
-/* 詳細リンク（黒で控えめ） */
 .detail-link {
     color: #111827;
     text-decoration: none;
@@ -98,14 +91,12 @@
     text-decoration: underline;
 }
 
-/* 空行 */
 .empty {
     text-align: center;
     color: #6b7280;
     padding: 18px 0;
 }
 
-/* ページネーション（出すなら中央寄せ） */
 .pagination-wrap {
     width: 560px;
     max-width: 100%;

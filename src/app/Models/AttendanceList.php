@@ -37,24 +37,20 @@ class AttendanceList extends Model
         return $this->belongsTo(User::class);
     }
 
-    /** ← これが必要（今回のエラーの本体） */
     public function breaks(): HasMany
     {
         return $this->hasMany(AttendanceBreak::class, 'attendance_list_id');
     }
 
-    /** 進行中の休憩を1件返す（なければ null） */
     public function openBreak(): ?AttendanceBreak
     {
         return $this->breaks()->whereNull('end_at')->latest('start_at')->first();
     }
 
-    // 休憩の表示用ペア（H:i）配列：新breaks + 旧カラム(1/2)を併用
     public function breakPairsFormatted(): array
     {
         $pairs = [];
 
-        // 新: breaks テーブル由来（開始順）
         foreach ($this->breaks()->orderBy('start_at')->get() as $b) {
             $pairs[] = [
                 'start' => optional($b->start_at)->format('H:i'),
@@ -62,7 +58,6 @@ class AttendanceList extends Model
             ];
         }
 
-        // 旧: 休憩1
         if ($this->break_start || $this->break_end) {
             $pairs[] = [
                 'start' => optional($this->break_start)->format('H:i'),
@@ -70,7 +65,6 @@ class AttendanceList extends Model
             ];
         }
 
-        // 旧: 休憩2
         if ($this->break2_start || $this->break2_end) {
             $pairs[] = [
                 'start' => optional($this->break2_start)->format('H:i'),
@@ -81,24 +75,20 @@ class AttendanceList extends Model
         return $pairs;
     }
 
-    // 休憩の合計分（分）：新breaks + 旧カラム(1/2)を合算
     public function breakMinutes(): int
     {
         $mins = 0;
 
-        // 新: breaks
         foreach ($this->breaks as $b) {
             if ($b->start_at && $b->end_at) {
                 $mins += max(0, $b->end_at->diffInMinutes($b->start_at));
             }
         }
 
-        // 旧: 休憩1
         if ($this->break_start && $this->break_end) {
             $mins += max(0, $this->break_end->diffInMinutes($this->break_start));
         }
 
-        // 旧: 休憩2
         if ($this->break2_start && $this->break2_end) {
             $mins += max(0, $this->break2_end->diffInMinutes($this->break2_start));
         }
@@ -106,7 +96,6 @@ class AttendanceList extends Model
         return $mins;
     }
 
-    // 総勤務時間（分）：退勤−出勤−全休憩（新旧合算）
     public function totalWorkedMinutes(): ?int
     {
         if (!$this->clock_in_at || !$this->clock_out_at) return null;

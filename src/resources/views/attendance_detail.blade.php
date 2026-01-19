@@ -105,7 +105,7 @@ $ro = $hasPendingRequest ? 'readonly' : '';
                 </div>
             </div>
 
-            {{-- ✅ 出勤・退勤エラー（入力欄の下に表示） --}}
+            {{-- 出勤・退勤エラー（入力欄の下に表示） --}}
             @error('after_clock_in_at')
             <p class="form-error">{{ $message }}</p>
             @enderror
@@ -146,7 +146,7 @@ $ro = $hasPendingRequest ? 'readonly' : '';
                 </div>
                 </div>
 
-                {{-- ✅ 休憩エラー（各行の下に表示） --}}
+                {{-- 休憩エラー（各行の下に表示） --}}
                 @error("after_breaks.$i.start")
                 <p class="form-error">{{ $message }}</p>
                 @enderror
@@ -176,7 +176,7 @@ $ro = $hasPendingRequest ? 'readonly' : '';
                     </div>
                 </div>
 
-                {{-- ✅ 追加行のエラーも表示（必要なら） --}}
+                {{-- 追加行のエラーも表示（必要なら） --}}
                 @error("after_breaks.$breakCount.start")
                 <p class="form-error">{{ $message }}</p>
                 @enderror
@@ -199,13 +199,13 @@ $ro = $hasPendingRequest ? 'readonly' : '';
                     </div>
                 </div>
 
-                {{-- ✅ 備考エラー --}}
+                {{-- 備考エラー --}}
                 @error('after_note')
                 <p class="form-error">{{ $message }}</p>
                 @enderror
 
 
-                {{-- 修正ボタン（pending中は消す） --}}
+                {{-- 修正ボタン--}}
                 @if (!$hasPendingRequest)
                 <div class="actions" style="justify-content:flex-end">
                     <button type="submit" class="btn-primary">修正</button>
@@ -215,7 +215,7 @@ $ro = $hasPendingRequest ? 'readonly' : '';
         </form>
         @endif
 
-        {{-- 承認待ちメッセージ（pending中 or 送信直後） --}}
+        {{-- 承認待ちメッセージ --}}
         @if (session('pending_notice') || $hasPendingRequest)
         <p class="note-danger">
             {{ session('pending_notice') ?? '※承認待ちのため修正はできません。' }}

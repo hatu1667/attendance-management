@@ -8,7 +8,7 @@
 
 @section('content')
 <main class="container" role="main">
-    {{-- フラッシュメッセージ --}}
+
     @if(session('message'))
     <p style="text-align:center; color:#374151; margin:12px 0 0;">
         {{ session('message') }}

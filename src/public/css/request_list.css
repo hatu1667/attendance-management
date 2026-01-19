@@ -1,18 +1,14 @@
-/* ===== Request list (申請一覧) ===== */
 
-/* ページ全体の背景をスクショ1の薄グレーに */
 body {
     background: #f3f3f3;
 }
 
-/* 中央寄せレイアウト */
 .container {
     width: min(920px, 92vw);
     margin: 0 auto;
     padding: 56px 0 80px;
 }
 
-/* 見出し（左に縦バー） */
 .section-title {
     display: flex;
     align-items: center;
@@ -30,7 +26,6 @@ body {
     border-radius: 2px;
 }
 
-/* タブ（下線のみ） */
 .status-tabs {
     display: flex;
     gap: 42px;
@@ -40,7 +35,6 @@ body {
     padding-bottom: 10px;
 }
 
-/* タブ下の長い線 */
 .status-tabs::after {
     content: "";
     position: absolute;
@@ -61,7 +55,6 @@ body {
     position: relative;
 }
 
-/* アクティブの短い下線 */
 .status-tabs .tab.is-active::after {
     content: "";
     position: absolute;
@@ -72,7 +65,6 @@ body {
     background: #111;
 }
 
-/* テーブル外枠（白カード） */
 .table-wrap {
     width: min(740px, 92vw);
     margin: 0 auto;
@@ -80,10 +72,9 @@ body {
     border-radius: 4px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .08);
     overflow: hidden;
-    /* 角丸をテーブルにも効かせる */
 }
 
-/* テーブル */
+
 .req-table {
     width: 100%;
     border-collapse: collapse;
@@ -111,7 +102,6 @@ body {
     border-bottom: none;
 }
 
-/* 詳細リンク */
 .th-detail,
 .td-detail {
     width: 70px;
@@ -127,21 +117,18 @@ body {
     text-decoration: underline;
 }
 
-/* 空行 */
 .empty {
     text-align: center;
     padding: 18px 10px;
     color: #666;
 }
 
-/* ページネーション（中央） */
 .pagination {
     margin-top: 18px;
     display: flex;
     justify-content: center;
 }
 
-/* Laravel pagination が ul/li の場合の最低限の整形（環境差対策） */
 .pagination nav,
 .pagination ul {
     display: flex;

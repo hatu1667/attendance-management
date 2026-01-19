@@ -10,7 +10,7 @@
 @section('content')
 <main class="container" role="main">
 
-    {{-- ✅ タイトルだけユーザー名に --}}
+    {{-- タイトルだけユーザー名に --}}
     <h1 class="section-title">{{ $staff->name }}さんの勤怠</h1>
 
     {{-- 月ナビゲーション（一般ユーザーと同じ見た目） --}}

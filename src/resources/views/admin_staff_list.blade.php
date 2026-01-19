@@ -43,7 +43,6 @@ $ver = file_exists(public_path($css)) ? ('?v='.filemtime(public_path($css))) : '
             </table>
         </section>
 
-        {{-- スクショに無いなら消してOK。残す場合も見た目は崩れないようにしてます --}}
         @if (method_exists($staff, 'links'))
         <div class="pagination-wrap">
             {{ $staff->links() }}

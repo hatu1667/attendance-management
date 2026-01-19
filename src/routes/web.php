@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/stamp_correction_request', [RequestController::class, 'store'])->name('requests.store');
 });
 
-// 申請一覧（一般URL：本人の申請一覧）
+// 申請一覧
 Route::get('/stamp_correction_request/list', [RequestController::class, 'index'])
     ->name('requests.index')
     ->middleware('auth.any');
@@ -60,7 +60,7 @@ Route::get('/stamp_correction_request/list', [RequestController::class, 'index']
  * =======================*/
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    // ✅ 管理者ログイン（※ login.show と衝突させない）
+    // 管理者ログイン（※ login.show と衝突させない）
     Route::get('/login',  [AdminAuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AdminAuthController::class, 'login'])->name('login.post');
 
@@ -78,7 +78,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->whereNumber('id')
             ->name('attendance.detail');
 
-        // ✅ 管理者が勤怠詳細から修正申請を作る（POST）
+        //管理者が勤怠詳細から修正申請を作る（POST）
         Route::post('/stamp_correction_request/admin', [RequestController::class, 'storeByAdmin'])
             ->name('requests.store.admin');
 
@@ -101,16 +101,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->whereNumber('id')
             ->name('attendance.staff.export');
 
-        // ✅ 管理者：申請一覧（admin専用URL / admin専用の route名にする）
+        //管理者：申請一覧
         Route::get('/stamp_correction_request/list', [RequestController::class, 'index'])
             ->name('requests.index');
 
-        // 承認画面（GET）
+        // 承認画面
         Route::get('/stamp_correction_request/approve/{attendance_correct_request_id}', [ApproveController::class, 'show'])
             ->whereNumber('attendance_correct_request_id')
             ->name('requests.approve.show');
 
-        // 承認実行（POST）
+        // 承認実行
         Route::post('/stamp_correction_request/approve/{attendance_correct_request_id}', [ApproveController::class, 'approve'])
             ->whereNumber('attendance_correct_request_id')
             ->name('requests.approve');

@@ -2,9 +2,7 @@
     --border: #e5e7eb;
     --brand: #000000;
     --pending: #2563eb;
-    /* 青 */
     --approved: #16a34a;
-    /* 緑 */
 }
 
 * {
@@ -23,8 +21,6 @@ body {
     background: var(--bg);
 }
 
-
-/* Header */
 .site-header {
     background: var(--brand);
     color: #fff;
@@ -95,8 +91,6 @@ body {
     text-underline-offset: 3px;
 }
 
-
-/* Main */
 .container {
     max-width: 900px;
     margin: 32px auto 80px;
@@ -109,8 +103,6 @@ body {
     margin: 8px 0 16px;
 }
 
-
-/* Tabs */
 .status-tabs {
     display: flex;
     gap: 10px;
@@ -139,8 +131,6 @@ body {
     border-color: #bdd1ff;
 }
 
-
-/* Table */
 .table-wrap {
     background: transparent;
     border-radius: 10px;
@@ -190,8 +180,6 @@ body {
     text-decoration: underline;
 }
 
-
-/* Badges */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -211,7 +199,6 @@ body {
     background: var(--approved);
 }
 
-
 .empty {
     text-align: center;
     color: var(--muted);
@@ -219,8 +206,6 @@ body {
     background: #fff;
 }
 
-
-/* Pagination placeholder */
 .pagination {
     margin-top: 16px;
 }

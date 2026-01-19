@@ -20,8 +20,6 @@ body {
     background: var(--bg);
 }
 
-
-/* Header 共通 */
 .site-header {
     background: var(--brand);
     color: #fff;
@@ -233,8 +231,6 @@ body {
     cursor: pointer;
 }
 
-
-/* util */
 .sr-only {
     position: absolute;
     width: 1px;

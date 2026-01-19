@@ -25,7 +25,6 @@ body {
     line-height: 1.6;
 }
 
-/* ===== Header ===== */
 .site-header {
     background: var(--brand);
     color: #fff;
@@ -96,7 +95,6 @@ body {
     text-underline-offset: 3px;
 }
 
-/* ===== Main ===== */
 .container {
     max-width: 720px;
     margin: 40px auto 80px;
@@ -113,7 +111,6 @@ body {
     margin: 40px auto 80px;
 }
 
-/* バッジ */
 .status-badge {
     display: inline-block;
     padding: 6px 12px;
@@ -124,7 +121,6 @@ body {
     margin-bottom: 16px;
 }
 
-/* 日付と時計 */
 .date-text {
     font-size: 16px;
     color: #111;
@@ -138,7 +134,6 @@ body {
     margin: 8px 0 20px;
 }
 
-/* ===== Buttons ===== */
 .action {
     display: grid;
     place-items: center;
@@ -194,7 +189,6 @@ body {
     box-shadow: 0 0 0 4px var(--focus);
 }
 
-/* util */
 .sr-only {
     position: absolute;
     width: 1px;

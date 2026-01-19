@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('attendance_breaks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('attendance_list_id')->constrained('attendance_lists')->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); // 操作ユーザー（=勤怠所有者）でOK
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamp('start_at')->nullable();
             $table->timestamp('end_at')->nullable();
             $table->timestamps();

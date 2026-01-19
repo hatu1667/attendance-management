@@ -19,15 +19,12 @@ class LoginController extends Controller
 
         if (Auth::guard('web')->attempt($cred, $request->boolean('remember'))) {
 
-            // 念のため：管理者ログイン状態を切る（同一ブラウザで混ざるの防止）
             Auth::guard('admin')->logout();
 
             $request->session()->regenerate();
 
-            // ✅ これが重要：以前の intended を捨てる（/admin/login などに飛ばない）
             $request->session()->forget('url.intended');
 
-            // ✅ 一般ユーザーは必ず勤怠へ
             return redirect()->route('attendance.index');
         }
 

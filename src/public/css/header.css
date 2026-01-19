@@ -1,4 +1,3 @@
-/* 共通 */
 .site-header {
     background: #000;
     color: #fff;
@@ -35,7 +34,6 @@
     opacity: .95;
 }
 
-/* ナビ共通 */
 .site-nav__list {
     display: flex;
     gap: 20px;
@@ -72,14 +70,10 @@
     text-underline-offset: 3px;
 }
 
-/* バリアント */
 .site-header--auth .site-nav {
     display: none;
 }
 
-/* ロゴだけ（ログイン/登録） */
 .site-header--app .site-nav {
     display: block;
 }
-
-/* それ以外のページ */

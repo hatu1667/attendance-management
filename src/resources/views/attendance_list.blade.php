@@ -46,7 +46,6 @@
                     <td>{{ $day['total']     ?? '0:00' }}</td>
                     <td class="td-detail">
                         @isset($day['date'])
-                        {{-- attendance.show が未定義なら href="#" にしておく --}}
                         <a href="{{ route('attendance.show', ['date' => $day['date']]) }}" class="detail-link">詳細</a>
                         @else
                         <span class="detail-link disabled">詳細</span>

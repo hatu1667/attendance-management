@@ -9,11 +9,10 @@ class UseAdminFortify
 {
     public function handle(Request $request, Closure $next)
     {
-        // Fortify が参照する設定を管理者用に差し替え
         config([
             'fortify.guard'     => 'admin',
             'fortify.passwords' => 'admins',
-            'fortify.home'      => '/admin',  // ログイン後リダイレクト
+            'fortify.home'      => '/admin',
         ]);
 
         return $next($request);

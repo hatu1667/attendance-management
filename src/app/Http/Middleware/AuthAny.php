@@ -14,7 +14,6 @@ class AuthAny
             return $next($request);
         }
 
-        // adminページから来てたら管理者ログインへ、それ以外は一般ログインへ
         return redirect($request->is('admin/*') ? '/admin/login' : '/login');
     }
 }

@@ -4,7 +4,6 @@
     --brand: #000000;
 }
 
-/* 全体レイアウト */
 body {
     margin: 0;
     font-family: "Helvetica Neue", Arial, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -14,7 +13,6 @@ body {
     padding: 40px 20px 80px;
 }
 
-/* 共通ヘッダー */
 .site-header {
     background: var(--brand);
     color: #fff;
@@ -49,12 +47,10 @@ body {
     opacity: .95;
 }
 
-/* シンプルヘッダー（ログイン/登録用） */
 .site-header--simple .site-header__inner {
     justify-content: flex-start;
 }
 
-/* ナビ付きヘッダー */
 .site-nav__list {
     display: flex;
     gap: 20px;
