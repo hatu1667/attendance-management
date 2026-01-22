@@ -193,3 +193,39 @@ body {
         justify-content: flex-end
     }
 }
+
+.csv-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 22px;
+}
+
+.csv-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 184px;
+    height: 50px;
+
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+
+    border-radius: 5px;
+    font-weight: 105px;
+    font-size: 27px;
+    letter-spacing: .02em;
+
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+    transition: transform .05s ease, opacity .15s ease;
+}
+
+.csv-btn:hover {
+    opacity: .92;
+}
+
+.csv-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}

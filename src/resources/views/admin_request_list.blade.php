@@ -10,7 +10,6 @@
 <main class="container" role="main">
     <h2 class="section-title"><span class="bar"></span>申請一覧</h2>
 
-    {{-- 下線だけのタブ --}}
     @php $status = $status ?? request('status','pending'); @endphp
 
     <div class="status-tabs tabs-plain">
@@ -21,7 +20,6 @@
             href="{{ route('requests.index', ['status' => 'approved']) }}">承認済み</a>
     </div>
 
-    {{-- カード（枠付き）+ コンパクトテーブル --}}
     <section class="table-wrap table-compact">
         <table class="req-table">
             <thead>

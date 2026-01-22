@@ -4,7 +4,6 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/attendance_list.css') }}?v={{ filemtime(public_path('css/attendance_list.css')) }}">
-<link rel="stylesheet" href="{{ asset('css/admin_staff_attendance_list_add.css') }}?v={{ filemtime(public_path('css/admin_staff_attendance_list_add.css')) }}">
 @endpush
 
 @section('content')
@@ -58,7 +57,6 @@
         </table>
     </div>
 
-    {{-- ✅ CSVボタンだけ追加（右下） --}}
     <div class="csv-actions">
         <a class="csv-btn"
             href="{{ route('admin.attendance.staff.export', ['id' => $staff->id, 'ym' => $ym]) }}">

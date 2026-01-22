@@ -12,7 +12,9 @@ return new class extends Migration {
 
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
 
-       
+            $table->date('work_date');
+
+            // 打刻
             $table->dateTime('clock_in_at')->nullable();   // 出勤
             $table->dateTime('clock_out_at')->nullable();  // 退勤
 
@@ -20,7 +22,7 @@ return new class extends Migration {
             $table->dateTime('break_start')->nullable();
             $table->dateTime('break_end')->nullable();
 
-            // 休憩2（新規追加）
+            // 休憩2
             $table->dateTime('break2_start')->nullable();
             $table->dateTime('break2_end')->nullable();
 
